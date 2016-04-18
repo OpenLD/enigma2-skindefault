@@ -27,7 +27,8 @@ dist_install_DATA = arrowdown.png \
     slider_back.png \
     slider.png \
     testscreen.png \
-    overscan.png \
+    overscan1280x720.png \
+    overscan1920x1080.png \
     vkey_all.png \
     vkey_backspace.png \
     vkey_bg.png \
