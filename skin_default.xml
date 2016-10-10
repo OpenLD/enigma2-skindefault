@@ -1037,8 +1037,17 @@
 		<widget source="lab3" render="Label" position="30,60" size="458,25" font="Italic;19" transparent="1"/>
 		<widget name="AboutScrollLabel" position="30,90" size="458,300" font="Regular;20" transparent="1"/>
 		<ePixmap pixmap="buttons/key_info.png" position="525,0" size="35,25" alphatest="blend" transparent="1"/>
-		<ePixmap pixmap="buttons/green.png" position="0,410" size="140,40" alphatest="on"/>
-		<widget name="key_green" position="0,410" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1"/>
+	</screen>
+	<!-- About screen -->
+	<screen name="About" position="center,center" size="560,490" title="About">
+		<ePixmap pixmap="skin_default/buttons/red.png" position="0,0" size="140,40" alphatest="on"/>
+		<ePixmap pixmap="skin_default/buttons/green.png" position="135,0" size="140,40" alphatest="on"/>
+		<ePixmap pixmap="skin_default/buttons/yellow.png" position="270,0" size="140,40" alphatest="on"/>
+		<ePixmap pixmap="skin_default/buttons/blue.png" position="405,0" size="140,40" alphatest="on"/>
+		<widget name="key_red" position="0,0" zPosition="1" size="135,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1"/>
+		<widget name="key_green" position="135,0" zPosition="1" size="135,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1"/>
+		<widget name="key_blue" position="405,0" zPosition="1" size="135,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1"/>
+		<widget name="AboutScrollLabel" font="Regular;20" position="0,40" size="540,450" zPosition="2" halign="center"/>
 	</screen>
 	<screen name="TranslationInfo" position="center,center" size="420,350" title="Translation">
 		<eLabel position="10,20" size="380,23" font="Regular;23" text="Translation:"/>
