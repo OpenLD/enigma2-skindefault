@@ -2006,6 +2006,11 @@ self.autoResize()
 		<widget name="config" position="0,0" size="560,494" itemHeight="36" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0"/>
 	</screen>
 	<screen name="SubtitleDisplay" position="0,0" size="1280,720" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent"/>
+	<!-- TextBox -->
+	<screen name="TextBox" position="center,center" size="550,400" title="Message...">
+		<widget name="text" position="0,0" size="540,390" font="Regular;18" />
+		<!--widget source="text" render="Label" position="0,0" size="540,390" font="Regular;18" /-->
+	</screen>
 	<screen name="TempFanControl" position="center,center" size="560,550">
 		<widget name="config" position="0,0" size="560,120" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand" enableWrapAround="1"/>
 		<widget source="SensorTempText0" render="Label" position="10,250" zPosition="1" size="90,40" font="Regular;20" halign="left"/>
