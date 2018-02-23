@@ -32,7 +32,6 @@
 		<color name="window-sel-bg" value="#00acacac"/>
 		<color name="window-sel-fg" value="#00000000"/>
 		<color name="event-frgrnd" value="#00b1762b"/>
-		<color name="event-bkgrnd" value="#00000000"/>
 		<color name="orange" value="#00ffb300"/>
 		<color name="transparent" value="#ffffffff"/>
 		<color name="transpBlack" value="#80000000"/>
@@ -235,11 +234,16 @@
 		<widget source="session.CurrentService" render="Label" position="44,6" size="625,34" font="Boldit;30" foregroundColor="infobar_service_frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" valign="top" halign="left" noWrap="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<ePixmap pixmap="icons/icon_update_off.png" position="650,12" size="20,20" zPosition="0" alphatest="blend"/>
-		<widget source="global.OnlineStableUpdateState" render="Pixmap" pixmap="icons/icon_stableupdate.png" position="650,12" size="20,20" zPosition="1" alphatest="blend">
+		<ePixmap pixmap="icons/icon_update_off.png" position="634,12" size="20,20" zPosition="0" alphatest="blend"/>
+		<widget source="global.OnlineStableUpdateState" render="Pixmap" pixmap="icons/icon_stableupdate.png" position="634,12" size="20,20" zPosition="1" alphatest="blend">
 			<convert type="ConditionalShowHide">Blink</convert>
 		</widget>
-		<widget source="global.OnlineUnstableUpdateState" render="Pixmap" pixmap="icons/icon_unstableupdate.png" position="650,12" size="20,20" zPosition="1" alphatest="blend">
+		<widget source="global.OnlineUnstableUpdateState" render="Pixmap" pixmap="icons/icon_unstableupdate.png" position="634,12" size="20,20" zPosition="1" alphatest="blend">
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
+		<ePixmap pixmap="icons/ico_stream_off.png" position="656,14" size="15,15" zPosition="0" alphatest="blend"/>
+		<widget source="session.RecordState" render="Pixmap" pixmap="icons/ico_stream.png" position="656,14" size="15,15" zPosition="1" alphatest="blend">
+			<convert type="ClientsStreaming"/>
 			<convert type="ConditionalShowHide">Blink</convert>
 		</widget>
 		<ePixmap pixmap="icons/icon_rec_off.png" position="673,13" size="31,17" zPosition="0" alphatest="blend"/>
@@ -1093,6 +1097,14 @@
 		<widget name="yellow" position="423,325" size="150,20" zPosition="1" font="Regular;20" halign="left" valign="center" backgroundColor="window-bg" transparent="1"/>
 		<widget name="blue" position="618,325" size="150,20" zPosition="1" font="Regular;20" halign="left" valign="center" backgroundColor="window-bg" transparent="1"/>
 	</screen>
+	<screen name="NetworkSetPassword" position="0,0" size="541,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MenuPanel"/>
+		<panel name="MenuRed2Panel"/>
+		<panel name="MenuGreen2Panel"/>
+		<panel name="MenuYellow2Panel"/>
+		<panel name="MenuBlue2Panel"/>
+		<widget name="passwd" position="30,107" size="458,36" font="Bold;20" transparent="0" zPosition="1"/>
+	</screen>
 	<screen name="AdapterSetup" position="center,center" size="560,550">
 		<widget name="config" position="95,0" size="320,150" transparent="0" zPosition="10" scrollbarMode="showOnDemand"/>
 		<eLabel text=" " position="75,168" zPosition="1" size="360,2" backgroundColor="#008c8c8c"/>
@@ -1480,16 +1492,25 @@ self.autoResize()
 		<widget source="Event" render="Label" position="20,70" size="577,30" halign="left" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="613,70" size="65,30" halign="right" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
+		<widget source="Event" render="Label" position="10,70" size="655,25" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="660,70" size="100,25" halign="right" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="Event" render="Label" position="680,70" size="100,30" halign="left" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
+		<widget source="Event" render="Label" position="765,70" size="165,25" halign="left" backgroundColor="black" font="Bold;24" noWrap="1" transparent="0" foregroundColor="orange">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:- %H:%M</convert>
 		</widget>
-		<widget source="Event" render="Label" position="20,110" zPosition="1" size="780,170" font="Regular;22" foregroundColor="window-fg" backgroundColor="black" valign="top">
+		<widget source="Event" render="Label" position="10,100" zPosition="1" size="860,163" font="Regular;22" foregroundColor="window-fg" backgroundColor="black" valign="top">
 			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="Event" render="Label" position="10,266" size="400,20" font="Regular;18" foregroundColor="blue" halign="center">
+			<convert type="EventName">Genre</convert>
+		</widget>
+		<widget source="Event" render="Label" position="415,266" size="415,20" font="Regular;18" foregroundColor="blue" halign="center">
+			<convert type="EventName">SmallRating</convert>
 		</widget>
 		<widget name="lab1" position="0,290" size="1280,390" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="black" transparent="0"/>
 		<widget name="timeline_text" position="0,290" size="1280,30" backgroundColor="black" foregroundColor="orange" transparent="1" zPosition="0"/>
@@ -1686,7 +1707,7 @@ self.autoResize()
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">AsLength</convert>
 		</widget>
-		<widget source="Service" render="Label" position="695,445" size="570,210" font="Regular;20" backgroundColor="black" foregroundColor="window-fg" transparent="0" valign="top" zPosition="2">
+		<widget source="Service" render="Label" position="695,445" size="570,200" font="Regular;20" backgroundColor="black" foregroundColor="window-fg" transparent="0" valign="top" zPosition="2">
 			<convert type="MovieInfo">MetaDescription</convert>
 		</widget>
 		<widget name="freeDiskSpace" position="870,660" size="400,20" font="Regular;18" backgroundColor="window-sel-fg" valign="center" halign="right" zPosition="2" transparent="1"/>
@@ -1721,6 +1742,21 @@ self.autoResize()
 	</screen>
 	<screen name="MovieListTags" position="center,center" size="560,550">
 		<widget name="list" position="0,0" size="560,536" itemHeight="25" font="Regular;22" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+	</screen>
+	<screen name="MovieSelectionFileManagerList" position="center,center" size="560,600">
+		<panel name="MenuRed4Panel"/>
+		<panel name="MenuGreen4Panel"/>
+		<panel name="MenuYellow4Panel"/>
+		<panel name="MenuBlue4Panel"/>
+		<widget name="config" position="0,78" size="560,450" transparent="0" enableWrapAround="1" scrollbarMode="showOnDemand"/>
+		<widget source="Service" render="Label" position="5,530" size="400,25" zPosition="2" halign="left" foregroundColor="orange" backgroundColor="window-bg" font="Bold;22" noWrap="1" transparent="0">
+			<convert type="MovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="410,530" size="130,25" zPosition="2" halign="right" foregroundColor="orange" backgroundColor="window-bg" font="Bold;22" transparent="0">
+			<convert type="ServiceTime">Duration</convert>
+			<convert type="ClockToText">AsLength</convert>
+		</widget>
+		<widget name="description" position="0,565" size="560,40" font="Regular;18" halign="center" valign="top" transparent="0" zPosition="1"/>
 	</screen>
 	<screen name="Mute" position="92,40" zPosition="10" size="90,80" backgroundColor="transparent" title="Mute" flags="wfNoBorder">
 		<ePixmap position="0,0" size="90,80" pixmap="screens/mute.png" transparent="1" alphatest="on"/>
